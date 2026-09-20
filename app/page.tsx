@@ -2,6 +2,8 @@ import Image from "next/image";
 import { ArrowRight, Clock3, MapPin, MessageCircle, PackageCheck, Phone, Sparkles, Star, Wheat } from "lucide-react";
 import { businessConfig, products, reviews } from "@/config/business";
 import { ConversionLink } from "@/components/conversion-link";
+import { MobileStickyCta } from "@/components/mobile-sticky-cta";
+import { SocialProof } from "@/components/social-proof";
 
 const reasons = [
   { icon: Sparkles, title: "Taze Üretim", text: "Gün içinde taze hazırlanan, çıtır çıtır börekler." },
@@ -50,11 +52,11 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/35 to-transparent" />
               <span className="absolute bottom-3 right-3 rounded-full border border-white/15 bg-charcoal/75 px-4 py-2 text-xs font-bold backdrop-blur">Her Gün Taze</span>
             </div>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-7">
+            <div id="hero-conversion-actions" className="mt-6 flex flex-col gap-3 lg:mt-7 lg:flex-row">
               <ConversionLink href={`tel:${businessConfig.phone}`} event="phone_click" placement="hero" className="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl bg-orange px-6 text-base font-bold text-white transition hover:-translate-y-0.5 hover:bg-orange-dark focus-ring"><Phone size={20} /> Telefonla Sipariş Ver</ConversionLink>
               <ConversionLink href={businessConfig.whatsappUrl} event="whatsapp_click" placement="hero" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl border border-white/25 bg-white/10 px-6 text-base font-bold text-white backdrop-blur-sm transition hover:bg-white/15 focus-ring"><MessageCircle size={20} /> WhatsApp’tan Sipariş Ver</ConversionLink>
             </div>
-            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm text-white/80"><span className="font-bold text-orange-light" aria-hidden="true">★</span><span><strong className="font-bold text-white">4,6 Google Puanı</strong> <span className="mx-1 text-white/30">·</span> 141 Yorum</span></div>
+            <SocialProof className="mt-5" />
           </div>
         </div>
         <div className="absolute bottom-6 right-8 hidden rounded-full border border-white/15 bg-charcoal/75 px-5 py-3 text-sm font-bold backdrop-blur lg:block">Her Gün Taze</div>
@@ -85,7 +87,7 @@ export default function Home() {
       <section className="border-t border-black/8 bg-white" aria-labelledby="location-title"><div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:px-10 lg:py-24"><div><p className="eyebrow">Ferhatpaşa şubesi</p><h2 id="location-title" className="section-title">Bizi Bulun</h2><div className="mt-8 text-lg leading-8"><strong>{businessConfig.businessName}</strong><br /><span className="text-muted">{businessConfig.address.district} / {businessConfig.address.neighborhood}<br />{businessConfig.address.city}</span></div><ConversionLink href={businessConfig.googleMapsUrl} event="directions_click" placement="location" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-xl bg-ink px-5 font-bold text-white focus-ring"><MapPin size={19} /> Google Maps’te Yol Tarifi Al</ConversionLink></div><div className="rounded-2xl bg-cream-dark p-7 sm:p-9"><div className="flex items-center gap-3"><Clock3 className="text-orange-dark" /><h3 className="font-serif text-2xl font-semibold">Çalışma Saatleri</h3></div><dl className="mt-7 divide-y divide-black/8">{businessConfig.openingHours.map((item) => <div key={item.days} className="flex justify-between gap-6 py-4 text-sm"><dt className="text-muted">{item.days}</dt><dd className="font-bold">{item.hours}</dd></div>)}</dl><p className="mt-5 text-xs leading-5 text-muted">Resmî tatillerde saatler değişebilir. Sipariş vermeden önce arayabilirsiniz.</p></div></div></section>
 
       <footer className="bg-black px-5 py-10 text-white/55 sm:px-8 lg:px-10"><div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between"><p className="font-serif text-lg font-semibold text-white">{businessConfig.businessName}</p><p>{businessConfig.branchName} • İstanbul</p></div></footer>
-      <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2 border-t border-black/10 bg-white/95 p-3 pb-[calc(.75rem+env(safe-area-inset-bottom))] shadow-[0_-8px_30px_rgb(0_0_0/.08)] backdrop-blur md:hidden" aria-label="Hızlı sipariş"><ConversionLink href={`tel:${businessConfig.phone}`} event="phone_click" placement="mobile_sticky" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-ink font-bold text-white focus-ring"><Phone size={19} /> Ara</ConversionLink><ConversionLink href={businessConfig.whatsappUrl} event="whatsapp_click" placement="mobile_sticky" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-orange font-bold text-white focus-ring"><MessageCircle size={19} /> WhatsApp</ConversionLink></div>
+      <MobileStickyCta />
     </main>
   );
 }
