@@ -24,7 +24,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <header className="absolute inset-x-0 top-0 z-30 border-b border-white/10">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
           <a href="#top" className="leading-none text-white focus-ring" aria-label="Sayfanın başına dön">
             <span className="block font-serif text-xl font-semibold tracking-tight">{businessConfig.businessName}</span>
             <span className="mt-1 block text-[11px] font-semibold uppercase tracking-[0.2em] text-white/55">{businessConfig.branchName}</span>
@@ -35,24 +35,29 @@ export default function Home() {
         </div>
       </header>
 
-      <section id="top" className="relative isolate min-h-[760px] bg-charcoal text-white lg:min-h-[780px]">
-        <div className="absolute inset-0 lg:left-1/2">
+      <section id="top" className="relative isolate bg-charcoal text-white lg:min-h-[700px]">
+        <div className="absolute inset-y-0 right-0 hidden w-1/2 lg:block">
           <Image src="/images/kiymali-kol-boregi.png" alt="Taze pişmiş kıymalı kol böreği" fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-[62%_center] lg:object-center" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/45 to-charcoal/20 lg:bg-gradient-to-r lg:from-charcoal lg:via-charcoal/35 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/35 to-transparent" />
         </div>
-        <div className="relative mx-auto grid min-h-[760px] max-w-7xl items-end px-5 pb-14 pt-32 sm:px-8 lg:min-h-[780px] lg:grid-cols-2 lg:items-center lg:px-10 lg:pb-0">
+        <div className="relative mx-auto grid max-w-7xl px-5 pb-12 pt-28 sm:px-8 lg:min-h-[700px] lg:grid-cols-2 lg:items-center lg:px-10 lg:py-24">
           <div className="max-w-2xl lg:pr-12">
-            <p className="mb-5 flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-orange-light"><span className="h-px w-8 bg-orange" /> Ataşehir’de sıcak börek</p>
-            <h1 className="font-serif text-[clamp(3rem,8vw,6.5rem)] font-semibold leading-[0.93] tracking-[-0.04em]">Sıcacık Börek,<br /><span className="text-orange-light">Bir Telefon</span><br />Kadar Yakın.</h1>
-            <p className="mt-7 max-w-xl text-base leading-7 text-white/70 sm:text-lg">Kıymalı kol böreği, peynirli Bülent Börek ve diğer çeşitlerimiz için hemen sipariş verin.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-orange-light sm:text-sm"><span className="h-px w-8 bg-orange" /> ATAŞEHİR'DE SICAK BÖREK</p>
+            <h1 className="font-serif text-[clamp(2.75rem,7vw,4.75rem)] font-semibold leading-[0.98] tracking-[-0.04em]">Sıcacık Börek,<br /><span className="text-orange-light">Kapınıza Gelsin.</span></h1>
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/70 sm:text-lg">Kıymalı kol böreği, peynirli Bülent Börek ve diğer çeşitlerimiz için hemen sipariş verin.</p>
+            <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 sm:aspect-[16/8] lg:hidden">
+              <Image src="/images/kiymali-kol-boregi.png" alt="Taze pişmiş kıymalı kol böreği" fill priority sizes="100vw" className="object-cover object-center" />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/35 to-transparent" />
+              <span className="absolute bottom-3 right-3 rounded-full border border-white/15 bg-charcoal/75 px-4 py-2 text-xs font-bold backdrop-blur">Her Gün Taze</span>
+            </div>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-7">
               <ConversionLink href={`tel:${businessConfig.phone}`} event="phone_click" placement="hero" className="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl bg-orange px-6 text-base font-bold text-white transition hover:-translate-y-0.5 hover:bg-orange-dark focus-ring"><Phone size={20} /> Telefonla Sipariş Ver</ConversionLink>
               <ConversionLink href={businessConfig.whatsappUrl} event="whatsapp_click" placement="hero" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl border border-white/25 bg-white/10 px-6 text-base font-bold text-white backdrop-blur-sm transition hover:bg-white/15 focus-ring"><MessageCircle size={20} /> WhatsApp’tan Sipariş Ver</ConversionLink>
             </div>
-            <div className="mt-7 flex items-center gap-3 text-sm text-white/75"><span className="flex text-orange-light" aria-hidden="true">★★★★★</span><span><strong className="text-white">{businessConfig.googleRating} Google Puanı</strong> <span className="mx-1 text-white/30">•</span> {businessConfig.googleReviewCount}+ Yorum</span></div>
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm text-white/80"><span className="font-bold text-orange-light" aria-hidden="true">★</span><span><strong className="font-bold text-white">4,6 Google Puanı</strong> <span className="mx-1 text-white/30">·</span> 141 Yorum</span></div>
           </div>
         </div>
-        <div className="absolute bottom-8 right-8 hidden rounded-full border border-white/15 bg-charcoal/75 px-5 py-3 text-sm font-bold backdrop-blur lg:block">Her Gün Taze</div>
+        <div className="absolute bottom-6 right-8 hidden rounded-full border border-white/15 bg-charcoal/75 px-5 py-3 text-sm font-bold backdrop-blur lg:block">Her Gün Taze</div>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28" aria-labelledby="products-title">
