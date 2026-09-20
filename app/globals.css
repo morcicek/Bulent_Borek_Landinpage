@@ -1,0 +1,8 @@
+@import "tailwindcss";
+:root { --cream:#f5f1e8; --cream-dark:#ebe4d6; --ink:#1c1a17; --charcoal:#171613; --orange:#e8611a; --orange-dark:#c94b0d; --orange-light:#ff9b61; --muted:#6f6a61; }
+@theme inline { --color-cream:var(--cream); --color-cream-dark:var(--cream-dark); --color-ink:var(--ink); --color-charcoal:var(--charcoal); --color-orange:var(--orange); --color-orange-dark:var(--orange-dark); --color-orange-light:var(--orange-light); --color-muted:var(--muted); --font-sans:Arial,Helvetica,sans-serif; --font-serif:Georgia,"Times New Roman",serif; --shadow-soft:0 12px 40px rgb(34 28 20 / .07); }
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif} a{text-decoration:none}
+.eyebrow{margin-bottom:.75rem;font-size:.75rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-dark)}
+.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.35rem,5vw,4.25rem);font-weight:600;line-height:1.02;letter-spacing:-.035em}
+.focus-ring:focus-visible{outline:3px solid #ffb183;outline-offset:3px} ::selection{background:#ffb183;color:#1c1a17}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
